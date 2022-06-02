@@ -1,18 +1,18 @@
-									
+								
 									<!--begin::Toolbar wrapper-->
 									<div class="d-flex align-items-stretch flex-shrink-0">
 										<!--begin::Search-->
 										<div class="d-flex align-items-stretch ms-1 ms-lg-3">
 
-<?php  $e = include __DIR__.'/../search/_base.php ';
-echo "dadawdawdawd". var_dump( $e);
+<?php include __DIR__.'/../search/_base.php ';
+
 ?>
 
 									
-<?php include 'layout/topbar/partials/_notifications-menu.php '?>
+<?php //include 'layout/topbar/partials/_notifications-menu.php '?>
 
 										
-<?php include 'layout/topbar/partials/_quick-links-menu.php '?>
+<?php //include 'layout/topbar/partials/_quick-links-menu.php '?>
 
 											<!--end::Menu wrapper-->
 										</div>

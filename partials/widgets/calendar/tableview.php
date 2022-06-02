@@ -1,6 +1,27 @@
 <?php
+
+// if (isset($_POST['logins'])) {
+//     header('location: login.php');
+//   print_r($_POST);
+
+// }
+// $usernames = $_SESSION['name'];
+// if (!isset($_SESSION['usernames'])) {
+//     $_SESSION['msg'] = "You must log in first";
+//     header('location: login.php');
+//   }
+// if ($_POST['name'] === 'admin'  && $_POST['password'] ==='1234'){
+// echo "OKKKKKK";
+    
+// }
+// else{
+//     header('location: login.php');
+// }
+
+
+
 error_reporting(E_ALL ^ E_NOTICE);
-  require  '../vendor/autoload.php';
+ include  '../vendor/autoload.php';
   $mon = new MongoDB\Client();
   $conn = $mon->iparuba->ipaps;
   $apn = $conn->find()->toArray();
@@ -12,6 +33,8 @@ error_reporting(E_ALL ^ E_NOTICE);
   $mon = new MongoDB\Client();
   $conn = $mon->iparuba->ipaps;
   $aps = $conn->find()->toArray();
+
+ 
 // $conn = new MongoDB\Client();
 // $companydb  = $conn->iparuba;
 // $empcollection = $companydb->ipaps;
@@ -50,7 +73,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 <?php
 
 
-$url = "http://127.0.0.1:8000/api/checkM";
+//$url = "http://192.168.207.239:81/api/view";
 //$ip = '172.16.0.50';$sid = 'tL7NZFoTY5HX4a4phhMw';
 // $url = "https://".$ip.":4343/rest/show-cmd?iap_ip_addr=".$ip."&cmd=show%20clients&sid=".$sid;
 $curl = curl_init($url);
@@ -86,21 +109,30 @@ for ($v = 0; $v < count($apss); $v++) {
   for ($o = 0; $o < count($datas); $o++) {
 
       if ($same[$v] === $datas[$o]['Max']) {
-
-          $today[] = $datas[$o]['d/m/y'];
-          $totime[] =  $datas[$o]['time'];
+        $toip[] = $datas[$o]['Max'];
+        $tostatus[]= $datas[$o]['Status'];
+        $today[] = $datas[$o]['d/m/y'];
+        $totime[] =  $datas[$o]['time'];
       }
   }
   if ($today != false && $totime != false) {
-   
-      $showday[]  = [$v => end($today)];
-      $showtime [] = [$v => end($totime)];
+    $showday[]  = [$v => end($today)];
+    $showtime [] = [$v => end($totime)];
+    // $showip = ([
+    //   'ip' => end($toip),
+    //   'day' => end($today)
+    // ]) ;
+    $showip[] = end($toip);
+    $showdayN[] = end($today);
+    $showtimeN[] =end($totime);
+    $showstatus [] =end($tostatus);
      
   }
 
 }
 
 $l = -1;
+
 ?>
 <div class=" fs-2   shadow p-3 mb-5 bg-body rounded">
     
@@ -156,13 +188,12 @@ $l = -1;
                         <td><?php echo ($data[$i][3]) ?></td>
                         <td><?php echo ($data[$i][4]) ?></td>  
                         <?php } else if ($data[$i][2] ==='Offline'){
-                              $l = $l+1;?>
+                              ?>
                         <td style="color:#E10808"><?php echo ($data[$i][2]) ?></td>
                           
-                        <td><?php echo ($showday[$l][$i])?> </td> 
-                        
-                        <td><?php echo ($showtime[$l][$i]) ?></td>
-                      
+                        <td><?php echo ($showdayN[$i]); ?></td>
+
+                        <td><?php echo($showtimeN[$i]) ;?></td>
                         
                        
 
@@ -176,12 +207,6 @@ $l = -1;
        
 </div>
 </div>
-
-
-
-
-
-
 
 <div class="overlay"id="divOne" >
         <div class="wrappers">

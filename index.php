@@ -1,4 +1,13 @@
+<?php
+session_start();
+$usernames = $_SESSION['username'];
 
+
+if (!isset($_SESSION['username'])) {
+	header('location: authentication/flows/basic/sign-in.php');
+}
+
+// ?>
 <!DOCTYPE html>
 <!--
 Author: Keenthemes
@@ -11,6 +20,7 @@ Dribbble: www.dribbble.com/keenthemes
 Like: www.facebook.com/keenthemes
 License: For each use you must have a valid license purchased only from above link in order to legally use the theme for your project.
 -->
+
 <html lang="en">
 	<!--begin::Head-->
 	<head><base href="">
