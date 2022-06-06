@@ -1,3 +1,4 @@
+
 											
 											<!--begin::Menu-->
 											<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-primary fw-bold py-4 fs-6 w-275px" data-kt-menu="true">
@@ -82,7 +83,8 @@
 												
 												<!--begin::Menu item-->
 												<div class="menu-item px-5">
-													<a href="authentication/flows/basic/sign-in.php" class="menu-link px-5">Sign Out</a>
+													 
+													<a href="authentication/flows/basic/sign-in.php?out=1" class="menu-link px-5" ">Sign Out</a>
 												</div>
 												<!--end::Menu item-->
 												<!--begin::Menu separator-->

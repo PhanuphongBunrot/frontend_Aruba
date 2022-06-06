@@ -1,23 +1,11 @@
 <?php
 
-// if (isset($_POST['logins'])) {
-//     header('location: login.php');
-//   print_r($_POST);
 
-// }
-// $usernames = $_SESSION['name'];
-// if (!isset($_SESSION['usernames'])) {
-//     $_SESSION['msg'] = "You must log in first";
-//     header('location: login.php');
-//   }
-// if ($_POST['name'] === 'admin'  && $_POST['password'] ==='1234'){
-// echo "OKKKKKK";
-    
-// }
-// else{
-//     header('location: login.php');
-// }
 
+if (isset($_SESSION['username'])) {
+	//header('location: authentication/flows/basic/sign-in.php');
+    echo $_SESSION['username'];
+}
 
 
 error_reporting(E_ALL ^ E_NOTICE);

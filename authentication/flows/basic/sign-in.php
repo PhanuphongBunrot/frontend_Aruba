@@ -1,7 +1,15 @@
 <?php 
 session_start();
 
+if (isset($_GET['out'])) {
 
+
+	$max = $_GET['out'];
+   //echo $max;
+   if ($max == 1 ){
+	unset($_SESSION['username']);
+   }
+}
 
 ?>
 
@@ -55,7 +63,10 @@ License: For each use you must have a valid license purchased only from above li
 						<!--begin::Form-->
 						<form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" action="cheak.php" method="POST">
 							<!--begin::Heading-->
-							
+							<div   class="container" style="color:#C81111 "><?php if(isset($_SESSION['error'])){
+								echo $_SESSION['error'] ;
+								unset($_SESSION['error']);
+							}  ?></div>
 							<!--begin::Input group-->
 							<div class="fv-row mb-10">
 								<!--begin::Label-->

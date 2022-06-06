@@ -1,7 +1,5 @@
 <?php
 session_start();
-$usernames = $_SESSION['username'];
-
 
 if (!isset($_SESSION['username'])) {
 	header('location: authentication/flows/basic/sign-in.php');

@@ -7,12 +7,14 @@ session_start();
         $passwords = $_POST['password'];
         if ( $nameuser === 'admin' and $passwords === '1234'){
            $_SESSION['username'] = $nameuser;
-           echo ($_SESSION['username']);
+           //echo ($_SESSION['username']);
             header('location: index.php');
+            //unset($_SESSION['username']);
         }
         
         else {
             header('location: authentication/flows/basic/sign-in.php');
+            $_SESSION['error'] = "Please Check Username or Password Incprrect";
         }
     }
 
